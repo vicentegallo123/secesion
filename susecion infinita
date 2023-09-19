@@ -1,0 +1,49 @@
+#include <iostream>
+
+// Función recursiva para la primera sucesión
+int sucesion1(int n) {
+    //nes igual a 1, devuelve -7, 
+    if (n == 1) {
+        return -7;
+    } else {
+        //se llama a sí misma con n - 1y se le suma 3 al resultado anterior.
+        return sucesion1(n - 1) + 3;
+    }
+}
+
+// Función recursiva para la segunda sucesión
+int sucesion2(int n) {
+    //nes igual a 1, devuelve -2, y cuando nes igual a 2, devuelve 1.
+    if (n == 1) {
+        return -2;
+    } else if (n == 2) {
+        return 1;
+    } else {
+        //n - 1y n - 2, se multiplica el resultado de la primera llamada por -3, 
+        return -3 * sucesion2(n - 1) + sucesion2(n - 2);
+    }
+}
+
+int main() {
+    int n;
+
+    // Solicitar al usuario el valor de n
+    std::cout << "Ingrese un valor para n: ";
+    std::cin >> n;
+
+    // Calcular y mostrar la primera sucesión
+    std::cout << "Sucesión 1: ";
+    for (int i = 1; i <= n; i++) {
+        std::cout << sucesion1(i) << " ";
+    }
+    std::cout << std::endl;
+
+    // Calcular y mostrar la segunda sucesión
+    std::cout << "Sucesión 2: ";
+    for (int i = 1; i <= n; i++) {
+        std::cout << sucesion2(i) << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
